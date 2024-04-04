@@ -1,9 +1,8 @@
-import  jwt, { Secret }  from 'jsonwebtoken';
+
 
 import { Request } from 'express';
 import prisma from '../../shared/prisma';
 import { Prisma } from '@prisma/client';
-import config from '../../../config';
 
 
 const addPetIntoDB = async (req:Request) => {
