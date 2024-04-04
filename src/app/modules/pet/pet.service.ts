@@ -2,7 +2,6 @@
 
 import { Request } from 'express';
 import prisma from '../../shared/prisma';
-import { Prisma } from '@prisma/client';
 
 
 const addPetIntoDB = async (req:Request) => {
@@ -49,7 +48,7 @@ const getPaginatedFilteredPets = async (req: Request) => {
         const limitNumber: string = (limit as string) || '10';
 
         // Building filter object based on query parameters
-        const filter: Prisma.PetWhereInput = {
+        const filter = {
             ...(species && { species: { contains: species.toString() } }),
             ...(breed && { breed: { contains: breed.toString() } }),
             ...(age && { age: parseInt(age.toString()) }),
